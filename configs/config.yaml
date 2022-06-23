@@ -14,11 +14,10 @@ artifacts:
 metrics:
   SCORES: scores.json
 
-plots:
+plots: 
   PRC: prc.json
   ROC: roc.json
-
+ 
 source_data:
-  URL: https://raw.githubusercontent.com/c17hawke/common-data-repo/main/data.xml 
   data_dir: data
   data_file: data.xml
