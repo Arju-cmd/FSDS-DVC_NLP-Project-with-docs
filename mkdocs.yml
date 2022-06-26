@@ -4,6 +4,7 @@ site_name: FSDS-DVC_NLP-Project-with-docs
 nav:
   - Home: index.md
   - Data-prep-stage: data_prep.md
+  - Featurization: featurization.md
 
 site_author: Arjun G Kumar
 site_description: >-
