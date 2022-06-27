@@ -7,6 +7,7 @@ from src.utils.common import read_yaml, create_directories,get_df
 import random
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer,TfidfTransformer
+from src.utils import read_yaml, create_directories,get_df,save_matrix
 
 STAGE = "Featurization" ## <<< change stage name 
 
@@ -55,6 +56,7 @@ def main(config_path, params_path):
     tfidf = TfidfTransformer(smooth_idf=False)
     tfidf.fit(train_words_binary_matrix)
     train_words_tfidf_matrix = tfidf.transform(train_words_binary_matrix)
+    save_matrix(df = df_train, matrix=train_words_tfidf_matrix, out_path=featurized_train_data_path)
 
     # for test data
     df_test = get_df(test_data_path)
@@ -63,6 +65,7 @@ def main(config_path, params_path):
     test_words_tfidf_matrix = tfidf.transform(test_words_binary_matrix)
 
     # Call a function to save this matrix
+    save_matrix(df = df_test, matrix=test_words_tfidf_matrix, out_path=featurized_test_data_path)
 
 
 

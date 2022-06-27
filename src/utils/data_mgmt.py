@@ -9,6 +9,9 @@ import re
 
 def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
     line_num = 1
+    column_names = "pid\tlabel\ttext\n"
+    fd_out_train.write(column_names)
+    fd_out_test.write(column_names)
     for line in tqdm(fd_in):
         try:
             fd_out = fd_out_train if random.random() > split else fd_out_test
@@ -25,3 +28,7 @@ def process_posts(fd_in, fd_out_train, fd_out_test, target_tag, split):
 
         except Exception as e:
             msg=f"skipping those broken lines{line_num}:{e}\n"
+
+def save_matrix(df, matrix, out_path):
+    id_matrix = df.pid
+    
